@@ -1,6 +1,3 @@
-Here’s a polished version of your README.md with the small fixes and consistency improvements applied:
-
----
 
 # 🚀 Mi-Stack: The Sri Lanka's First Automated Unified Hosting Platform
 
@@ -202,6 +199,4 @@ If you have any questions or need support, connect with us on [LinkedIn](https:/
 We’re here to help you deploy faster 🚀
 
 ---
-
-If you want me to format it with any badges, images, or add extra sections, just say! Otherwise, this version is clean and professional.
 
