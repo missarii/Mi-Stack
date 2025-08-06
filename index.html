@@ -1,224 +1,156 @@
 <!DOCTYPE html>
-<html data-lt-installed="true"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style><!-- 
-NITROGEN LANDING PAGE V1
-Last Edited on 25th Oct 2020
---><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <title>Missari Nitrogen Effect</title>
+  
+  <link href="Nitrogen%20bacground%20-%20Hishan_files/css.css" rel="stylesheet" />
+  <link rel="mask-icon" href="https://www.chevron.lk/images/nitrogen-touch-bar.svg" color="#F62A05" />
 
-    <meta charset="utf-8">
-    <meta http-equiv="Cache-Control" content="no-cache">
+  <style>
+    /* Prevent text selection globally */
+    * {
+      user-select: none;
+    }
 
-    <title>Missari Nitrogen Effect</title>
+    html, body {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      font-family: 'Lekton', sans-serif;
+      overflow: visible;
+      background-color: #000; /* Added background for better contrast */
+    }
 
-    <link href="Nitrogen%20bacground%20-%20Hishan_files/css.css" rel="stylesheet">
-    <link rel="mask-icon" href="https://www.chevron.lk/images/nitrogen-touch-bar.svg" color="#F62A05">
-</head><body data-new-gr-c-s-check-loaded="8.912.0" data-gr-ext-installed=""><style>
-            * {
-                user-select: none;
-            }
+    body {
+      position: fixed;
+    }
 
-            html, body {
-                overflow: visible;
-                font-family: 'Lekton', sans-serif;
-            }
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
 
-            body {
-                margin: 0;
-                position: fixed;
-                width: 100%;
-                height: 100%;
-            }
+    .headline-container {
+      position: fixed;
+      top: 10%;
+      left: 28%;
+      color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
 
-            canvas {
-                width: 100%;
-                height: 100%;
-            }
+    .headline-container img {
+      width: 200px;
+      height: auto;
+    }
 
-            .dg {
-                opacity: 0.9;
-            }
+    .headline-container h1 {
+      font-size: 133px;
+      margin: 0 0 10px 0;
+    }
 
-            .dg .property-name {
-                overflow: visible;
-            }
+    .headline-container p {
+      font-size: 28px;
+      line-height: 1.4;
+      margin: 0;
+    }
 
-            .bigFont {
-                font-size: 50px;
-                color: #fff;
-            }
+    .description {
+      position: absolute;
+      top: 40%;
+      left: 28%;
+      color: rgb(198, 198, 198);
+      font-size: 30px;
+      max-width: 500px;
+      padding-right: 30px;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
 
-            .cr.function.appBigFont {
-                font-size: 150%;
-                line-height: 27px;
-                background-color: #2F4F4F;
-            }
+    .description a {
+      color: white;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
 
-            .cr.function.appBigFont .property-name {
-                float: none;
-            }
+    .description a:hover {
+      border-color: #ff9800;
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cstyle%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift{from{transform:translateX(0);}to{transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ff9800' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+      background-position: 0 100%;
+      background-repeat: repeat-x;
+      background-size: 20%;
+      padding-bottom: 0.3em;
+      text-decoration: none;
+    }
 
-            .cr.function.appBigFont .icon {
-                position: sticky;
-                bottom: 27px;
-            }
+    .down-arrow {
+      position: absolute;
+      bottom: 25px;
+      right: 48%;
+      width: 50px;
+      height: 50px;
+      background: url("https://svgshare.com/i/Do2.svg") no-repeat center center / 50px 50px;
+      cursor: pointer;
+      transition: bottom 0.3s ease-in-out;
+    }
 
-            .icon {
-                font-family: 'iconfont';
-                font-size: 130%;
-                float: right;
-            }
+    .down-arrow:hover {
+      bottom: 5px;
+    }
 
-            .twitter:before {
-                content: 'a';
-            }
+    /* Responsive tweak example */
+    @media (max-width: 812px) and (min-device-pixel-ratio: 3) and (orientation: portrait) {
+      .description {
+        padding-right: 20px;
+        font-size: 24px;
+        line-height: 1.6;
+        left: 5%;
+        top: 50%;
+      }
+      .headline-container {
+        left: 5%;
+        top: 15%;
+      }
+      .headline-container h1 {
+        font-size: 80px;
+      }
+      .headline-container p {
+        font-size: 18px;
+      }
+    }
+  </style>
 
-            .github:before {
-                content: 'b';
-            }
+  <script>
+    // Minimal Google Analytics snippet example placeholder
+    window.ga = window.ga || function() { (ga.q = ga.q || []).push(arguments) };
+    ga.l = +new Date;
+    ga('create', 'UA', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+<body>
 
-            .app:before {
-                content: 'c';
-            }
+  <div class="headline-container">
+    <!-- You can add your logo image here -->
+    <!-- <img src="your-logo.svg" alt="Nitrogen Logo" /> -->
+    <h1>MISSARI</h1>
+    <p>NITROGEN EFFECT</p>
+  </div>
 
-            .discord:before {
-                content: 'd';
-            }
+  <div class="description">
+    Your description text goes here.  
+    <a href="#">Learn more</a>
+  </div>
 
-            .headline-container {
-                position: fixed; /* or absolute */
-                top: 10%;
-                left: 28%;
-            }
+  <div class="down-arrow" title="Scroll Down"></div>
 
-            .headline-container img {
-                width: 200px !important;
-                height: auto;
-            } 
+  <canvas width="1280" height="885"></canvas>
 
-            .headline-container h1 {
-                color: white;
-                text-transform: uppercase;
-                font-size: 133px;
-                margin-bottom: 0;
-            }
+  <script src="Nitrogen%20bacground%20-%20Hishan_files/script.js"></script>
 
-            .headline-container p {
-                margin-top: 27px;
-                padding-left: 0px;
-                color: white;
-                line-height: 45px;
-                font-size: 28px;
-                text-transform: uppercase;
-            }
-
-            .down-arrow {
-                background-image: url("https://svgshare.com/i/Do2.svg");
-                background-repeat: no-repeat;
-                background-position: center center;
-                background-size: 50px 50px;
-                position: absolute;
-                width: 50px;
-                height: 50px;
-                bottom: 25px;
-                right: 48%;
-                transition: bottom 0.3s ease-in-out;
-            }
-            .down-arrow:hover {
-                bottom: 5px;
-                cursor: pointer;
-                transition: bottom 0.3s ease-in-out;
-            }
-            .description{
-                position: absolute;
-                top:0px;
-                color: rgb(198, 198, 198);
-                font-size:30px;
-                left: 28%;
-                top: 40%;
-                padding-right: 530px;
-                text-transform: uppercase;
-                line-height: 50px;
-
-            }
-           
-            @media only screen 
-and (min-device-width : 375px) 
-and (max-device-width : 812px) 
-and (-webkit-device-pixel-ratio : 3)
-and (orientation : portrait) { /* STYLES GO HERE */ }
-            .description{
-                position: absolute;
-                top:0px;
-                color: rgb(200, 198, 198);
-                font-size:30px;
-                left: 28%;
-                top: 40%;
-                margin-top: -100px;
-                padding-right: 170px;
-                text-transform: uppercase;
-                line-height: 70px;
-  }
-            .description a {
-                color: white;
-            }
-            .description a:hover {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ff9800' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
-  background-position: 0 100%;
-  background-size: auto 6px;
-  background-repeat: repeat-x;
-  text-decoration: none;
-  background-position: bottom;
-  background-repeat: repeat-x;
-  background-size: 20%;
-  border-bottom: 0;
-  padding-bottom: .3em;
-  text-decoration: none;
-}   
-}
-            
-            
-
-    
-            
-            
-            .description a {
-                color: white;
-            }
-            .description a:hover {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ff9800' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
-  background-position: 0 100%;
-  background-size: auto 6px;
-  background-repeat: repeat-x;
-  text-decoration: none;
-  background-position: bottom;
-  background-repeat: repeat-x;
-  background-size: 20%;
-  border-bottom: 0;
-  padding-bottom: .3em;
-  text-decoration: none;
-}            
-            
-            
-            
-            
-            
-            
-        </style>
-        <script>
-            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-            ga('create', 'UA', 'auto');
-            ga('send', 'pageview');
-        </script>
-        
-    
-    
-        <div class="headline-container">
-            
-            <br>
-        </div>
-        
-        
-        <canvas width="1280" height="885"><div></div><div></div><div></div><div></div><div></div></canvas>
-        <script src="Nitrogen%20bacground%20-%20Hishan_files/script.js"></script>
-    
-</body></html>
+</body>
+</html>
