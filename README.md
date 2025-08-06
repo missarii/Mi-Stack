@@ -4,7 +4,7 @@
 Mi-Stack is a developer-focused, one-click deployment platform that radically simplifies hosting for full-stack, frontend, and backend applications. Built to compete with major cloud providers, Mi-Stack abstracts infrastructure management and empowers you to deploy apps with just a ZIP file or GitHub URL.
 
 **⚠️ Mobile access is currently unsupported.**
-Use Mi-Stack from a desktop or laptop for full functionality.
+Use Mi-Stack from a desktop or laptop for full functionality!!!
 
 ---
 
